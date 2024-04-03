@@ -14,8 +14,11 @@ const app = express()
 // Middlewire
 app.use(express.json())
 
-// routes
-app.use(blogRoutes)
+// Routes
+app.use("/create", blogRoutes)
+
+// Test
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 // Connect to DB
 mongoose.set("strictQuery", false);
