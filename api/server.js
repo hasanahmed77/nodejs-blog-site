@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
-const blogRoutes = require('./routes/blogs')
+const blogRoutes = require('../routes/blogs')
 const mongoose = require('mongoose')
 
 // Express app
