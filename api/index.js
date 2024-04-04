@@ -28,7 +28,7 @@ const app = express()
 app.use(express.json())
 
 // Routes
-app.use(blogRoutes)
+app.use("/api/blogs", blogRoutes)
 
 // Swagger docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
