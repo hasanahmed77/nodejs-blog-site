@@ -1,0 +1,50 @@
+---
+swagger: "2.0"
+info:
+  description: How the API works
+  version: 1.0.0
+  title: Node.js Blog Site API
+paths:
+  /create:
+    get:
+      description: Returns all the blogs from database
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: No blogs were available
+    post:
+      description: Adds a new blog to the database
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: No such blog is available
+  /create/:id:
+    get:
+      description: Returns a single blog from the database
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: No such blog is available
+    delete:
+      description: Deletes a blog from the database
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: No such blog is available
+    patch:
+      description: Updates a blog from the database
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: No such blog is available
+definitions: {}
