@@ -22,7 +22,7 @@ app.use(express.json())
 app.use("/create", blogRoutes)
 
 // Swagger docs
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Test
 // app.get("/", (req, res) => res.send("Express on Vercel"));
