@@ -6,8 +6,11 @@ const blogRoutes = require('../routes/blogs')
 const mongoose = require('mongoose')
 const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css"
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
+swaggerUi.setup(specs, { customCssUrl: CSS_URL })
 
 // Loading Swagger YAML file
 const swaggerDocument = YAML.load(path.join(__dirname, '../blog.yaml'));
