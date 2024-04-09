@@ -3,9 +3,11 @@ const path = require('path');
 const dotenv = require('dotenv');
 const express = require('express')
 const blogRoutes = require('../routes/blogs')
+const userRoutes = require('../routes/user')
 const mongoose = require('mongoose')
 const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
+const cors = require('cors');
 const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css"
 
 const options = {
@@ -27,8 +29,12 @@ const app = express()
 // Middlewire
 app.use(express.json())
 
+// Enable CORS
+app.use(cors({ origin: true, credentials: true }));
+
 // Routes
 app.use("/api/blogs", blogRoutes)
+app.use("/api/user", userRoutes)
 
 // Swagger docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
