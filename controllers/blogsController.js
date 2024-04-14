@@ -4,7 +4,16 @@ const mongoose = require('mongoose')
 // GET all the blogs
 const getBlogs = async (req, res) => {
     const blogs = await Blog.find({}).sort({createdAt: -1})
+  
+    res.status(200).json(blogs)
+}
 
+// GET all the blogs for a certain USER
+const getMyBlogs = async (req, res) => {
+    const user_id = req.user._id
+
+    const blogs = await Blog.find({user_id}).sort({createdAt: -1})
+  
     res.status(200).json(blogs)
 }
 
@@ -22,7 +31,10 @@ const getABlog = async (req, res) => {
         return res.status(404).json({error : 'No such blog.'})
     }
 
-    res.status(200).json(blog)
+    res.status(200).json({ 
+        blog,
+        allowDelete: 'true' 
+      });
 }
 
 // CREATE a new blog - POST request
@@ -77,6 +89,7 @@ const updateBlog = async (req, res) => {
 
 module.exports = {
     getBlogs,
+    getMyBlogs,
     getABlog,
     createBlog,
     deleteBlog,
